@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  if(endpoints)
+    table(class='container')
+      thead
+       tr
+        th
+         h1='TelevisionStations In Iceland'
+       tbody
+        each endpoint,channel in endpoints,channels
+         tr
+          td
+           a(href="http://localhost:3000"+endpoint)
+            p= channel
+  else if(channels)
+    table(class='container')
+      thead
+       tr
+        th
+         h1='Dagskrá '+title
+       tbody
+        each channel in channels
+         tr
+          td
+            p= channel.title
+            p= channel.description
+            p= channel.startTime
